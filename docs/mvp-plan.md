@@ -55,7 +55,7 @@ Streak = consecutive days with a finished round. Missing a day resets it.
 
 The anonymous `playerId` for votes is added in Phase 2, when there's something to use it for.
 
-### UI (one page, mobile-first)
+### UI (one page, works on phone and laptop)
 
 | Component        | Does                                                                     |
 | ---------------- | ------------------------------------------------------------------------ |
@@ -110,6 +110,7 @@ ragebaitor.com
 | Proof                 | Optional; `reason` is always required                                                     |
 | Video                 | Later                                                                                     |
 | Crowd %               | Not in Phase 1. Comes with real votes in Phase 2                                          |
+| Look                  | Dark only. Phone: post, then buttons at the bottom. Laptop: post left, actions right      |
 
 ## Still open
 

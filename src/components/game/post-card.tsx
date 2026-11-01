@@ -4,15 +4,15 @@ import type { Post } from "@/validators/post";
 
 const PostCard = ({ post }: { post: Post }) => {
     return (
-        <div className="flex justify-center">
+        <div className="flex flex-1 items-center justify-center">
             <Image
                 src={post.media.url}
                 alt={post.alt}
                 width={post.media.width}
                 height={post.media.height}
-                sizes="(max-width: 448px) 100vw, 448px"
+                sizes="(min-width: 1024px) 560px, 100vw"
                 loading="eager"
-                className="h-auto max-h-[60dvh] w-auto max-w-full rounded-xl ring-1 ring-foreground/10"
+                className="h-auto max-h-[55dvh] w-auto max-w-full rounded-2xl shadow-2xl ring-1 ring-foreground/10 motion-safe:animate-in motion-safe:duration-300 motion-safe:fade-in lg:max-h-[75dvh]"
             />
         </div>
     );

@@ -31,10 +31,13 @@ beforeEach(() => {
 describe("EndScreen", () => {
     it("shows score, grid and streak", () => {
         renderEndScreen();
-        expect(screen.getByText("Ragebaitor #3")).toBeInTheDocument();
+        expect(screen.getByText("#3")).toBeInTheDocument();
         expect(screen.getByText("2/3")).toBeInTheDocument();
         expect(screen.getByText("⬜🎣⬜")).toBeInTheDocument();
-        expect(screen.getByText("Streak 2 · Best 5")).toBeInTheDocument();
+        expect(screen.getByText("Streak").previousSibling).toHaveTextContent(
+            "2"
+        );
+        expect(screen.getByText("Best").previousSibling).toHaveTextContent("5");
     });
 
     it("copies the share text", async () => {

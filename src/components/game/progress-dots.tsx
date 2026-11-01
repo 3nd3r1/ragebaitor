@@ -18,7 +18,7 @@ const ProgressDots = ({ total, position, results }: ProgressDotsProps) => {
         <div
             role="img"
             aria-label={`Post ${position + 1} of ${total}`}
-            className="flex justify-center gap-1.5"
+            className="flex gap-1.5"
         >
             {Array.from({ length: total }, (_, index) => {
                 const state = getDotState(index, position, results);
@@ -27,9 +27,9 @@ const ProgressDots = ({ total, position, results }: ProgressDotsProps) => {
                         key={index}
                         data-state={state}
                         className={cn(
-                            "size-2.5 rounded-full",
-                            state === "correct" && "bg-emerald-500",
-                            state === "wrong" && "bg-destructive",
+                            "size-2 rounded-full sm:size-2.5",
+                            state === "correct" && "bg-correct",
+                            state === "wrong" && "bg-wrong",
                             state === "current" && "bg-foreground",
                             state === "upcoming" && "bg-muted"
                         )}

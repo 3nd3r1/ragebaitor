@@ -23,19 +23,17 @@ const Reveal = ({ post, guess, isLast, onNext }: RevealProps) => {
     const correct = guess === post.label;
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 motion-safe:animate-in motion-safe:duration-300 motion-safe:fade-in motion-safe:slide-in-from-bottom-2">
             <div className="space-y-1">
-                <p className="text-lg font-semibold">
-                    <span
-                        className={cn(
-                            correct ? "text-emerald-500" : "text-destructive"
-                        )}
-                    >
+                <p className="font-heading text-2xl font-bold lg:text-4xl">
+                    <span className={correct ? "text-correct" : "text-wrong"}>
                         {correct ? "Correct." : "Wrong."}
                     </span>{" "}
                     It was {post.label}.
                 </p>
-                <p className="text-muted-foreground">{post.reason}</p>
+                <p className="text-base text-muted-foreground lg:pt-2 lg:text-lg">
+                    {post.reason}
+                </p>
             </div>
 
             {(post.sourceUrl || post.proof) && (
@@ -81,7 +79,10 @@ const Reveal = ({ post, guess, isLast, onNext }: RevealProps) => {
                 </div>
             )}
 
-            <Button className="h-14 text-base" onClick={onNext}>
+            <Button
+                className="h-16 rounded-xl font-heading text-lg font-bold"
+                onClick={onNext}
+            >
                 {isLast ? "See results" : "Next"}
             </Button>
         </div>
