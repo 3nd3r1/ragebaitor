@@ -9,8 +9,8 @@ export const siteConfig: SiteConfig = {
     url: "https://ragebaitor.com",
 
     // Branding
-    themeColor: "#000000",
-    backgroundColor: "#000000",
+    themeColor: "#15110e",
+    backgroundColor: "#15110e",
     locale: "en_US",
     language: "en",
 

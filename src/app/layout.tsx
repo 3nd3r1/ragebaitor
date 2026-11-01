@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 
 import { siteConfig } from "@/lib/config";
 
@@ -16,6 +16,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
     variable: "--font-mono",
+    subsets: ["latin"],
+});
+
+const display = Bricolage_Grotesque({
+    variable: "--font-display",
     subsets: ["latin"],
 });
 
@@ -49,6 +54,7 @@ export const metadata: Metadata = {
         apple: "/apple-touch-icon.png",
     },
     category: siteConfig.category,
+    other: { "darkreader-lock": "true" },
 };
 
 const structuredData = {
@@ -68,7 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
         <html
             lang={siteConfig.language}
-            className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+            className={`${geistSans.variable} ${geistMono.variable} ${display.variable} h-full antialiased`}
             suppressHydrationWarning
         >
             <head>
@@ -82,8 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <body className="flex min-h-full flex-col">
                 <ThemeProvider
                     attribute="class"
-                    defaultTheme="dark"
-                    enableSystem
+                    forcedTheme="dark"
                     disableTransitionOnChange
                 >
                     <div className="flex flex-1 flex-col">{children}</div>
