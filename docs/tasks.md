@@ -41,9 +41,9 @@ Working checklist for [mvp-plan.md](./mvp-plan.md). Tick items off as they land.
 - [x] `PostCard`: screenshot sized to fit, up to a max height
 - [x] `GuessButtons`, pinned to the bottom of the screen
 - [x] `Reveal` (verdict, reason, View original, Show proof, Next)
-- [ ] `ProgressDots`
+- [x] `ProgressDots`
 - [x] `EndScreen` (score, grid, streak, copy result)
-- [ ] Home page wires it together
+- [x] Home page wires it together
 
 ### Tests
 

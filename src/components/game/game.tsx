@@ -5,6 +5,7 @@ import { useDailyGame } from "@/hooks/use-daily-game";
 import EndScreen from "@/components/game/end-screen";
 import GuessButtons from "@/components/game/guess-buttons";
 import PostCard from "@/components/game/post-card";
+import ProgressDots from "@/components/game/progress-dots";
 import Reveal from "@/components/game/reveal";
 
 const Game = () => {
@@ -25,6 +26,11 @@ const Game = () => {
                 />
             ) : (
                 <>
+                    <ProgressDots
+                        total={game.round.length}
+                        position={game.position}
+                        results={game.results}
+                    />
                     <PostCard key={game.current.id} post={game.current} />
                     <div className="mt-auto">
                         {game.revealed ? (
