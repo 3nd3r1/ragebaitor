@@ -42,7 +42,7 @@ Working checklist for [mvp-plan.md](./mvp-plan.md). Tick items off as they land.
 - [x] `GuessButtons`, pinned to the bottom of the screen
 - [x] `Reveal` (verdict, reason, View original, Show proof, Next)
 - [ ] `ProgressDots`
-- [ ] `EndScreen` (score, flavour text, streak, copy share)
+- [x] `EndScreen` (score, grid, streak, copy result)
 - [ ] Home page wires it together
 
 ### Tests

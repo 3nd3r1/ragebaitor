@@ -2,6 +2,7 @@
 
 import { useDailyGame } from "@/hooks/use-daily-game";
 
+import EndScreen from "@/components/game/end-screen";
 import GuessButtons from "@/components/game/guess-buttons";
 import PostCard from "@/components/game/post-card";
 import Reveal from "@/components/game/reveal";
@@ -9,25 +10,36 @@ import Reveal from "@/components/game/reveal";
 const Game = () => {
     const game = useDailyGame();
 
-    if (!game.ready || !game.current) {
+    if (!game.ready) {
         return null;
     }
 
     return (
         <div className="mx-auto flex w-full max-w-md flex-1 flex-col gap-4 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-            <PostCard key={game.current.id} post={game.current} />
-            <div className="mt-auto">
-                {game.revealed ? (
-                    <Reveal
-                        post={game.current}
-                        guess={game.guesses[game.position]}
-                        isLast={game.position === game.round.length - 1}
-                        onNext={game.next}
-                    />
-                ) : (
-                    <GuessButtons onGuess={game.guess} />
-                )}
-            </div>
+            {game.finished || !game.current ? (
+                <EndScreen
+                    dayNumber={game.dayNumber}
+                    results={game.results}
+                    streak={game.streak}
+                    maxStreak={game.maxStreak}
+                />
+            ) : (
+                <>
+                    <PostCard key={game.current.id} post={game.current} />
+                    <div className="mt-auto">
+                        {game.revealed ? (
+                            <Reveal
+                                post={game.current}
+                                guess={game.guesses[game.position]}
+                                isLast={game.position === game.round.length - 1}
+                                onNext={game.next}
+                            />
+                        ) : (
+                            <GuessButtons onGuess={game.guess} />
+                        )}
+                    </div>
+                </>
+            )}
         </div>
     );
 };

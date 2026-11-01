@@ -63,7 +63,7 @@ The anonymous `playerId` for votes is added in Phase 2, when there's something t
 | `GuessButtons`   | Bait / Genuine, large tap targets at the bottom of the screen            |
 | `Reveal`         | Right/wrong, verdict, reason, View original, Show proof, Next            |
 | `ProgressDots`   | 10 dots showing done / current / correct / wrong                         |
-| `EndScreen`      | Score, one-line flavour text ("unbaitable"), streak, Copy share button   |
+| `EndScreen`      | Score, result grid, streak, Copy result button                           |
 
 Components go in `src/components/game/`. Uses existing shadcn `Card`, `Button`, `sonner` (for "Copied!"); may add `progress`.
 
