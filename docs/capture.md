@@ -1,6 +1,14 @@
 # Capturing posts
 
-Every post is a screenshot taken in Chrome DevTools at phone width, with real names and counts removed, then imported with `npm run add-post`. Doing it the same way each time keeps posts looking consistent in the game.
+For X posts, just pass the link:
+
+```bash
+npm run add-post -- https://x.com/someone/status/123 --label bait --reason "Admitted it the next day."
+```
+
+It fetches the text and photos, makes up a handle and links the original. Proof can be a link too (`--proof https://x.com/...`). Add `--no-source` to hide the link to the original.
+
+The rest of this guide is the fallback for other platforms: a screenshot taken in Chrome DevTools at phone width, with real names and counts removed.
 
 ## 1. Open the post at phone width
 
@@ -36,7 +44,7 @@ npm run add-post -- ~/Downloads/post.png \
   --proof ~/Downloads/proof.png
 ```
 
-`--source` and `--proof` are optional. Capture proof screenshots the same way as posts, including removing names.
+`--source` and `--proof` are optional. Capture proof screenshots the same way as posts, including removing names, or pass a link.
 
 `--alt` is what screen readers read out, so paste the post's full text.
 

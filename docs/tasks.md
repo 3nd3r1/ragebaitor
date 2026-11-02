@@ -25,6 +25,7 @@ Working checklist for [mvp-plan.md](./mvp-plan.md). Tick items off as they land.
     - DevTools device mode at a fixed width (390px)
     - Edit out real names and like counts in DevTools before capturing
     - Inspect the post → Capture node screenshot
+- [x] `npm run add-post` takes an X link: fetches text and photos, fake handle, own card
 - [x] `npm run add-post` import script
     - Resize to 1080px wide WebP with `sharp`
     - Strip metadata
@@ -53,7 +54,8 @@ Working checklist for [mvp-plan.md](./mvp-plan.md). Tick items off as they land.
 
 ### Content
 
-- [ ] Seed set of ~30 real posts in `posts.json`
+- [ ] Seed set of ~30 real posts in `posts.json` (1 so far)
+- [ ] Remove the 4 placeholder posts
 
 ## Phase 2: Supabase
 
@@ -68,7 +70,8 @@ Working checklist for [mvp-plan.md](./mvp-plan.md). Tick items off as they land.
 
 ## Later
 
-- [ ] Video posts (screen recordings, normalized with ffmpeg)
+- [ ] Video posts
+- [ ] Reddit and Bluesky links in `add-post`
 
 ## Open
 

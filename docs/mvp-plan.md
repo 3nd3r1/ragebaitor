@@ -8,31 +8,22 @@ Goal: play a full round on a phone, end with share text you can paste.
 
 ### Data
 
-Posts are screenshots of real posts, not re-typed text. A screenshot works for any platform and looks like the real thing.
+Posts are added from a link. `npm run add-post` fetches an X post's text and photos through X's embed API, swaps the author for a made-up handle and saves it. The game draws it as our own card, so every post looks the same and real names are never stored. Screenshots are the fallback for other platforms ([capture.md](./capture.md)).
 
-`src/data/posts.json`, validated at import with a Zod schema in `src/validators/post.ts`:
+`src/data/posts.json`, validated with Zod in `src/validators/post.ts`:
 
 ```ts
 {
-  id: string,            // "p001"
+  id: "p001",
   label: "bait" | "genuine",
-  media: { type: "image", url: string, width: number, height: number },  // set by add-post; video later
-  alt: string,           // what the post says, for screen readers
-  reason: string,        // one line shown on reveal
-  sourceUrl?: string,    // "View original" after reveal, when we have it
-  proof?: { type: "image", url: string }[],  // "Show proof" after reveal
+  content: { handle?: "@sleepymaple79", text?: string, media: Image[] },
+  reason: string,             // one line shown on reveal
+  sourceUrl?: string,         // "View original" after reveal
+  proof?: Content[],          // "Show proof" after reveal, same shape as content
 }
 ```
 
 Everything ships in the client bundle until Phase 2 moves posts to the server.
-
-### Content workflow
-
-Every screenshot is captured and imported the same way, so posts look consistent.
-
-1. **Capture** (guide in [capture.md](./capture.md)): DevTools device mode at 390px wide, edit out real names and like counts in DevTools, then Inspect the post → Capture node screenshot.
-2. **Import** with `npm run add-post`: resizes to 1080px wide WebP with `sharp`, strips metadata, records the image size, assigns the next id and appends the entry to `posts.json`.
-3. **Display:** the card is sized to the screenshot, up to a max height. The guess buttons are pinned to the bottom of the screen, so they don't move between posts.
 
 ### Daily set
 
@@ -59,7 +50,7 @@ The anonymous `playerId` for votes is added in Phase 2, when there's something t
 
 | Component        | Does                                                                     |
 | ---------------- | ------------------------------------------------------------------------ |
-| `PostCard`       | Screenshot sized to fit, up to a max height                              |
+| `PostCard`       | Our own post card (handle, text, photos), or a screenshot                |
 | `GuessButtons`   | Bait / Genuine, large tap targets at the bottom of the screen            |
 | `Reveal`         | Right/wrong, verdict, reason, View original, Show proof, Next            |
 | `ProgressDots`   | 10 dots showing done / current / correct / wrong                         |
@@ -106,7 +97,7 @@ ragebaitor.com
 | Buttons               | Bait / Genuine only. "Can't tell" maybe later                                             |
 | Engagement numbers    | Hidden in Phase 1 (default, revisit after playtesting)                                    |
 | Finnish set           | Out of scope for Phase 1                                                                  |
-| Post format           | Screenshots of real posts, captured and imported with a fixed workflow                    |
+| Post format           | Fetched from an X link and drawn as our own card. Screenshots as fallback                 |
 | Proof                 | Optional; `reason` is always required                                                     |
 | Video                 | Later                                                                                     |
 | Crowd %               | Not in Phase 1. Comes with real votes in Phase 2                                          |
