@@ -8,8 +8,7 @@ import Reveal from "@/components/game/reveal";
 const post: Post = {
     id: "p001",
     label: "bait",
-    media: { type: "image", url: "/posts/p001.webp", width: 1080, height: 600 },
-    alt: "A post",
+    content: { handle: "@quietlemon42", text: "A post", media: [] },
     reason: "Posts the same take every week.",
 };
 
@@ -49,7 +48,7 @@ describe("Reveal", () => {
                 post={{
                     ...post,
                     sourceUrl: "https://example.com/post",
-                    proof: [{ ...post.media, url: "/posts/p001-proof-1.webp" }],
+                    proof: [{ text: "lol this one did numbers", media: [] }],
                 }}
                 guess="bait"
                 isLast={false}
@@ -61,7 +60,9 @@ describe("Reveal", () => {
         ).toHaveAttribute("href", "https://example.com/post");
 
         fireEvent.click(screen.getByRole("button", { name: "Show proof" }));
-        expect(screen.getByRole("img", { name: "Proof" })).toBeInTheDocument();
+        expect(
+            screen.getByText("lol this one did numbers")
+        ).toBeInTheDocument();
     });
 
     it("calls onNext and says See results on the last post", () => {

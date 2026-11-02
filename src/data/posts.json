@@ -2,57 +2,66 @@
     {
         "id": "p001",
         "label": "bait",
-        "media": {
-            "type": "image",
-            "url": "/posts/p001.webp",
-            "width": 1080,
-            "height": 473
+        "content": {
+            "handle": "@quietlemon42",
+            "text": "Pineapple on pizza is objectively correct. If you disagree you've never had good pizza. I will not be taking questions.",
+            "media": []
         },
-        "alt": "Pineapple on pizza is objectively correct. If you disagree you've never had good pizza. I will not be taking questions.",
         "reason": "Posts a new food hot take every Monday.",
         "proof": [
             {
-                "type": "image",
-                "url": "/posts/p001-proof-1.webp",
-                "width": 1080,
-                "height": 414
+                "handle": "@quietlemon42",
+                "text": "lol the pizza one did numbers again. see you all next monday",
+                "media": []
             }
         ]
     },
     {
         "id": "p002",
         "label": "genuine",
-        "media": {
-            "type": "image",
-            "url": "/posts/p002.webp",
-            "width": 1080,
-            "height": 473
+        "content": {
+            "handle": "@mossyteapot",
+            "text": "Finally finished painting the spare room. Took three weekends and I'm still finding blue in my hair. Worth it.",
+            "media": []
         },
-        "alt": "Finally finished painting the spare room. Took three weekends and I'm still finding blue in my hair. Worth it.",
         "reason": "Personal update to a small audience."
     },
     {
         "id": "p003",
         "label": "bait",
-        "media": {
-            "type": "image",
-            "url": "/posts/p003.webp",
-            "width": 1080,
-            "height": 473
+        "content": {
+            "handle": "@growthmindset_dan",
+            "text": "If you still use a paper calendar you are actively choosing to be less productive. Sorry, someone had to say it.",
+            "media": []
         },
-        "alt": "If you still use a paper calendar you are actively choosing to be less productive. Sorry, someone had to say it.",
         "reason": "Same 'unpopular opinion' template posted weekly."
     },
     {
         "id": "p004",
         "label": "genuine",
-        "media": {
-            "type": "image",
-            "url": "/posts/p004.webp",
-            "width": 1080,
-            "height": 473
+        "content": {
+            "handle": "@breakfast_scientist",
+            "text": "I genuinely think milk before cereal is better. It doesn't get soggy as fast. I've tested this.",
+            "media": []
         },
-        "alt": "I genuinely think milk before cereal is better. It doesn't get soggy as fast. I've tested this.",
         "reason": "Followed up with an earnest spreadsheet of soak times."
+    },
+    {
+        "id": "p005",
+        "label": "bait",
+        "content": {
+            "handle": "@sleepymaple79",
+            "text": "It’s Saturday, meaning you can eat candy today",
+            "media": [
+                {
+                    "type": "image",
+                    "url": "/posts/p005-1.webp",
+                    "width": 1080,
+                    "height": 1440
+                }
+            ]
+        },
+        "reason": "It's bait, trust me.",
+        "sourceUrl": "https://x.com/joakial_/status/2106284513487908886"
     }
 ]

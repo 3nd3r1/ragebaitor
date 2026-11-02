@@ -15,10 +15,11 @@ describe("posts", () => {
     });
 
     it("references images that exist in public/", () => {
-        const urls = posts.flatMap((post) => [
-            post.media.url,
-            ...(post.proof ?? []).map((proof) => proof.url),
-        ]);
+        const urls = posts.flatMap((post) =>
+            [post.content, ...(post.proof ?? [])].flatMap((content) =>
+                content.media.map((media) => media.url)
+            )
+        );
         for (const url of urls) {
             expect(existsSync(path.join("public", url)), url).toBe(true);
         }

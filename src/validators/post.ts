@@ -7,16 +7,29 @@ export const mediaSchema = z.object({
     url: z.string().startsWith("/posts/"),
     width: z.number().int().positive(),
     height: z.number().int().positive(),
+    alt: z.string().optional(),
 });
+
+export const contentSchema = z
+    .object({
+        handle: z
+            .string()
+            .regex(/^@\w+$/)
+            .optional(),
+        text: z.string().optional(),
+        media: z.array(mediaSchema),
+    })
+    .refine((content) => content.text || content.media.length > 0, {
+        message: "Content needs text or media",
+    });
 
 export const postSchema = z.object({
     id: z.string().regex(/^p\d{3,}$/),
     label: labelSchema,
-    media: mediaSchema,
-    alt: z.string().min(1),
+    content: contentSchema,
     reason: z.string().min(1),
     sourceUrl: z.url().optional(),
-    proof: z.array(mediaSchema).optional(),
+    proof: z.array(contentSchema).optional(),
 });
 
 export const postsSchema = z
@@ -28,4 +41,5 @@ export const postsSchema = z
 
 export type Label = z.infer<typeof labelSchema>;
 export type Media = z.infer<typeof mediaSchema>;
+export type Content = z.infer<typeof contentSchema>;
 export type Post = z.infer<typeof postSchema>;

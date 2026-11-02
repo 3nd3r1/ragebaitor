@@ -11,13 +11,7 @@ vi.mock("@/lib/posts", () => ({
         return {
             id,
             label: i < 5 ? "bait" : "genuine",
-            media: {
-                type: "image",
-                url: `/posts/${id}.webp`,
-                width: 1080,
-                height: 600,
-            },
-            alt: id,
+            content: { text: id, media: [] },
             reason: id,
         };
     }),

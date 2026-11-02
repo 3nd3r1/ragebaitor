@@ -16,13 +16,7 @@ const makePosts = (count: number, label: Label, offset = 0): Post[] =>
         return {
             id,
             label,
-            media: {
-                type: "image",
-                url: `/posts/${id}.webp`,
-                width: 1080,
-                height: 600,
-            },
-            alt: id,
+            content: { text: id, media: [] },
             reason: id,
         };
     });

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import type { Label, Post } from "@/validators/post";
 
 import { cn } from "@/lib/utils";
@@ -11,6 +9,8 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+
+import PostContent from "@/components/game/post-content";
 
 type RevealProps = {
     post: Post;
@@ -62,16 +62,8 @@ const Reveal = ({ post, guess, isLast, onNext }: RevealProps) => {
                             </DialogTrigger>
                             <DialogContent className="max-h-[85dvh] overflow-y-auto sm:max-w-md">
                                 <DialogTitle>Proof</DialogTitle>
-                                {post.proof.map((proof) => (
-                                    <Image
-                                        key={proof.url}
-                                        src={proof.url}
-                                        alt="Proof"
-                                        width={proof.width}
-                                        height={proof.height}
-                                        sizes="(max-width: 448px) 100vw, 448px"
-                                        className="h-auto w-full rounded-lg"
-                                    />
+                                {post.proof.map((proof, i) => (
+                                    <PostContent key={i} content={proof} />
                                 ))}
                             </DialogContent>
                         </Dialog>
