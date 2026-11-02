@@ -21,7 +21,7 @@ Working checklist for [mvp-plan.md](./mvp-plan.md). Tick items off as they land.
 
 ### Content workflow
 
-- [ ] `docs/capture.md`: capture guide
+- [x] `docs/capture.md`: capture guide
     - DevTools device mode at a fixed width (390px)
     - Edit out real names and like counts in DevTools before capturing
     - Inspect the post → Capture node screenshot

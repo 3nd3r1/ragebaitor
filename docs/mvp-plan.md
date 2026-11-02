@@ -30,7 +30,7 @@ Everything ships in the client bundle until Phase 2 moves posts to the server.
 
 Every screenshot is captured and imported the same way, so posts look consistent.
 
-1. **Capture** (guide in `docs/capture.md`): DevTools device mode at 390px wide, edit out real names and like counts in DevTools, then Inspect the post → Capture node screenshot.
+1. **Capture** (guide in [capture.md](./capture.md)): DevTools device mode at 390px wide, edit out real names and like counts in DevTools, then Inspect the post → Capture node screenshot.
 2. **Import** with `npm run add-post`: resizes to 1080px wide WebP with `sharp`, strips metadata, records the image size, assigns the next id and appends the entry to `posts.json`.
 3. **Display:** the card is sized to the screenshot, up to a max height. The guess buttons are pinned to the bottom of the screen, so they don't move between posts.
 

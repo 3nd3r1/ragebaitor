@@ -5,6 +5,7 @@ A daily guessing game: you see a real post and guess whether it's ragebait or ge
 - [Concept](docs/concept.md)
 - [MVP plan](docs/mvp-plan.md)
 - [Tasks](docs/tasks.md)
+- [Capturing posts](docs/capture.md)
 
 ## Stack
 
