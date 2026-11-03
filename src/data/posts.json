@@ -238,5 +238,16 @@
         },
         "reason": "Sincere, even though it got heavily ratioed.",
         "sourceUrl": "https://x.com/willrahn/status/2110171068090474749"
+    },
+    {
+        "id": "p020",
+        "label": "bait",
+        "content": {
+            "handle": "@jollywalrus66",
+            "text": "Can't believe that Dario, Elon, Sam and I all agree on this.",
+            "media": []
+        },
+        "reason": "Admitted later it was bait.",
+        "sourceUrl": "https://x.com/theo/status/2099335125670752403"
     }
 ]

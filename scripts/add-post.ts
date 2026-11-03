@@ -26,7 +26,8 @@ const WIDTH = 1080;
 const USAGE = `Usage:
   npm run add-post -- <x-link|image> --label bait|genuine --reason "..." [--proof <x-link|image>]...
 
-  Images also need --alt "the post's text". Use --no-source to hide the "View original" link.`;
+  Images also need --alt "the post's text". Use --no-source to hide the "View original" link.
+  Use --no-media to import only a link's text, skipping its photos or video.`;
 
 const readPosts = async (): Promise<Post[]> => {
     try {
@@ -71,7 +72,8 @@ const handles = new Map<string, string>();
 const importContent = async (
     input: string,
     name: string,
-    alt?: string
+    alt?: string,
+    noMedia = false
 ): Promise<Content> => {
     const tweetId = parseTweetId(input);
     if (!tweetId) {
@@ -84,8 +86,9 @@ const importContent = async (
     const handle = handles.get(author) ?? makeHandle();
     handles.set(author, handle);
 
+    const photoUrls = noMedia ? [] : getTweetPhotoUrls(tweet);
     const media = await Promise.all(
-        getTweetPhotoUrls(tweet).map(async (url, i) =>
+        photoUrls.map(async (url, i) =>
             importImage(await download(url), `${name}-${i + 1}`)
         )
     );
@@ -101,6 +104,7 @@ const main = async () => {
             alt: { type: "string" },
             source: { type: "string" },
             "no-source": { type: "boolean" },
+            "no-media": { type: "boolean" },
             proof: { type: "string", multiple: true },
         },
     });
@@ -127,7 +131,12 @@ const main = async () => {
             : (values.source ?? (isLink ? input : undefined)),
     });
 
-    const content = await importContent(input, id, values.alt);
+    const content = await importContent(
+        input,
+        id,
+        values.alt,
+        values["no-media"]
+    );
     const proofInputs = values.proof ?? [];
     const proof: Content[] = [];
     for (const [i, proofInput] of proofInputs.entries()) {

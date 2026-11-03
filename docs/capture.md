@@ -6,7 +6,7 @@ For X posts, just pass the link:
 npm run add-post -- https://x.com/someone/status/123 --label bait --reason "Admitted it the next day."
 ```
 
-It fetches the text and photos, makes up a handle and links the original. Proof can be a link too (`--proof https://x.com/...`). Add `--no-source` to hide the link to the original.
+It fetches the text and photos, makes up a handle and links the original. Proof can be a link too (`--proof https://x.com/...`). Add `--no-source` to hide the link to the original, or `--no-media` to import only the text (needed for posts with video).
 
 The rest of this guide is the fallback for other platforms: a screenshot taken in Chrome DevTools at phone width, with real names and counts removed.
 
