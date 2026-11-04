@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const GuessButtons = ({ onGuess }: { onGuess: (label: Label) => void }) => {
     return (
         <div className="flex flex-col gap-4">
-            <h1 className="text-center font-heading text-2xl font-bold lg:text-left lg:text-4xl">
+            <h1 className="text-center font-heading text-2xl font-semibold lg:text-left lg:text-4xl">
                 Bait or genuine?
             </h1>
             <div className="grid grid-cols-2 gap-3">

@@ -20,7 +20,7 @@ const Game = () => {
     return (
         <div className="mx-auto flex w-full max-w-md flex-1 flex-col gap-4 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] lg:max-w-5xl lg:gap-8 lg:p-8">
             <header className="flex items-center justify-between">
-                <span className="font-heading text-xl font-extrabold tracking-tight lg:text-2xl">
+                <span className="font-heading text-xl font-semibold tracking-wider uppercase lg:text-2xl">
                     Ragebaitor
                 </span>
                 {playing && (

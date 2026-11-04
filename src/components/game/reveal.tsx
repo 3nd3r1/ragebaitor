@@ -25,7 +25,7 @@ const Reveal = ({ post, guess, isLast, onNext }: RevealProps) => {
     return (
         <div className="flex flex-col gap-3 motion-safe:animate-in motion-safe:duration-300 motion-safe:fade-in motion-safe:slide-in-from-bottom-2">
             <div className="space-y-1">
-                <p className="font-heading text-2xl font-bold lg:text-4xl">
+                <p className="font-heading text-2xl font-semibold lg:text-4xl">
                     <span className={correct ? "text-correct" : "text-wrong"}>
                         {correct ? "Correct." : "Wrong."}
                     </span>{" "}

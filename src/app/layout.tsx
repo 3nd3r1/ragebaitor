@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Noto_Sans, Playfair_Display } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 
 import { siteConfig } from "@/lib/config";
 import { getThemeColors } from "@/lib/theme";
@@ -11,7 +11,7 @@ import ThemeProvider from "@/components/common/layouts/theme-provider";
 
 import "./globals.css";
 
-const notoSans = Noto_Sans({
+const geist = Geist({
     variable: "--font-sans",
     subsets: ["latin"],
 });
@@ -81,7 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <html
             lang={siteConfig.language}
             className={cn(
-                notoSans.variable,
+                geist.variable,
                 playfairDisplay.variable,
                 geistMono.variable,
                 "h-full antialiased"

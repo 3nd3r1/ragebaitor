@@ -88,10 +88,10 @@
 }
 
 .dark {
-    --bait: oklch(0.7 0.19 35);
-    --bait-foreground: oklch(0.147 0.004 49.3);
+    --bait: var(--destructive);
+    --bait-foreground: var(--background);
     --correct: oklch(0.8 0.15 165);
-    --wrong: oklch(0.7 0.19 35);
+    --wrong: var(--destructive);
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.205 0 0);
@@ -123,6 +123,11 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Sera's label style, the same as its buttons and card titles. */
+@utility text-label {
+    @apply text-xs font-semibold tracking-widest uppercase;
 }
 
 @layer base {
