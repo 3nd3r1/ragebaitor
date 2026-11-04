@@ -30,14 +30,14 @@ This project uses shadcn/ui for UI components. Always prefer shadcn components o
 
 Components use the `base-sera` style, built on Base UI (not Radix). Compose with the `render` prop instead of `asChild`. For links that look like buttons, style the link with `cn(buttonVariants())` rather than wrapping it in `Button`. The `cn()` is required: without it the base and variant classes conflict (the outline border ends up transparent).
 
-Theme colors are CSS variables in `src/app/globals.css`, generated from a shadcn preset code (currently `b4pl265hL6`: Sera, neutral base, purple theme, Geist and Playfair Display). Change them with `npm run theme -- <code>` rather than editing by hand; `npx shadcn preset decode <code>` shows what a code contains. Fonts are applied separately with `npx shadcn apply <code> --only font --yes`; it rewrites `layout.tsx` messily and drops `--background`/`--foreground` from `:root`, so check the diff. The app is forced to dark mode, so the manifest, OG images and viewport theme color read the `.dark` colors from `globals.css` via `src/lib/theme.ts`.
+Theme colors are CSS variables in `src/app/globals.css`, generated from a shadcn preset code (currently `b8V3L7ZapU`: Sera, taupe base, red theme, IBM Plex Sans and Instrument Serif). Change them with `npm run theme -- <code>` rather than editing by hand; `npx shadcn preset decode <code>` shows what a code contains. Fonts are applied separately with `npx shadcn apply <code> --only font --yes`; it rewrites `layout.tsx` messily and drops `--background`/`--foreground` from `:root`, so check the diff. The app is forced to dark mode, so the manifest, OG images and viewport theme color read the `.dark` colors from `globals.css` via `src/lib/theme.ts`.
 
 ### Theming rules
 
 - Only use theme tokens for color (`bg-card`, `text-muted-foreground`, `bg-primary`, ...). No hex, `oklch()` or Tailwind palette colors like `bg-red-500` outside `src/components/ui/`. `tests/components/theme-tokens.test.ts` enforces this.
-- Game colors are tokens in the `.dark` block: `bait`, `correct`, `wrong`. Alias theme variables where one fits (`--bait: var(--destructive)`) so they follow preset changes. A new color gets a token there and a `--color-*` line in `@theme inline`.
+- Game colors are tokens in the `.dark` block: `bait`, `correct`, `wrong`. Alias theme variables where one fits (`--bait: var(--primary)`) so they follow preset changes. Red is the only loud color: it means bait (and wrong). Keep other UI in foreground, background and borders. A new color gets a token there and a `--color-*` line in `@theme inline`.
 - Customize shadcn components with variants in `src/components/ui/` (like Button's `bait` variant and `xl` size), not long `className` overrides at each use.
-- Match Sera's type: headings are `font-heading font-semibold`, small labels use the `text-label` utility (uppercase, wide tracking, like Sera's buttons). Avoid `font-bold`, `font-extrabold` and `tracking-tight`.
+- Match Sera's type: headings are `font-heading` at regular weight (Instrument Serif only has 400, and faux bold is turned off), small labels use the `text-label` utility (uppercase, wide tracking, like Sera's buttons). Avoid `font-bold`, `font-extrabold` and `tracking-tight`.
 - Keep Sera's square corners: no `rounded-*` on cards, buttons or images.
 
 ## Folder Structure

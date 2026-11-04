@@ -35,7 +35,7 @@ const EndScreen = ({
         <div className="mx-auto flex w-full max-w-sm flex-1 flex-col gap-8 lg:justify-center">
             <div className="flex flex-1 flex-col items-center justify-center gap-6 text-center lg:flex-none">
                 <p className="text-label text-muted-foreground">#{dayNumber}</p>
-                <p className="font-heading text-8xl font-semibold">
+                <p className="font-heading text-8xl">
                     {score}/{results.length}
                 </p>
                 <p className="text-xl whitespace-nowrap sm:text-2xl">
@@ -43,17 +43,13 @@ const EndScreen = ({
                 </p>
                 <dl className="grid w-full grid-cols-2 gap-3">
                     <Card size="sm" className="gap-1">
-                        <dd className="font-heading text-3xl font-semibold">
-                            {streak}
-                        </dd>
+                        <dd className="font-heading text-4xl">{streak}</dd>
                         <dt className="text-label text-muted-foreground">
                             Streak
                         </dt>
                     </Card>
                     <Card size="sm" className="gap-1">
-                        <dd className="font-heading text-3xl font-semibold">
-                            {maxStreak}
-                        </dd>
+                        <dd className="font-heading text-4xl">{maxStreak}</dd>
                         <dt className="text-label text-muted-foreground">
                             Best
                         </dt>

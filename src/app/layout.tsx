@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Geist_Mono, IBM_Plex_Sans, Instrument_Serif } from "next/font/google";
 
 import { siteConfig } from "@/lib/config";
 import { getThemeColors } from "@/lib/theme";
@@ -11,14 +11,15 @@ import ThemeProvider from "@/components/common/layouts/theme-provider";
 
 import "./globals.css";
 
-const geist = Geist({
+const ibmPlexSans = IBM_Plex_Sans({
     variable: "--font-sans",
     subsets: ["latin"],
 });
 
-const playfairDisplay = Playfair_Display({
+const instrumentSerif = Instrument_Serif({
     variable: "--font-heading",
     subsets: ["latin"],
+    weight: "400",
 });
 
 const geistMono = Geist_Mono({
@@ -81,8 +82,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <html
             lang={siteConfig.language}
             className={cn(
-                geist.variable,
-                playfairDisplay.variable,
+                ibmPlexSans.variable,
+                instrumentSerif.variable,
                 geistMono.variable,
                 "h-full antialiased"
             )}
