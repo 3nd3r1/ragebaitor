@@ -49,7 +49,7 @@ describe("EndScreen", () => {
             expect(toast.success).toHaveBeenCalledWith("Copied")
         );
         expect(writeText).toHaveBeenCalledWith(
-            "Ragebaitor #3 2/3\n⬜🎣⬜\nragebaitor.host.ender.fi"
+            "Ragebaitor #3 2/3\n⬜🎣⬜\nragebaitor.lol"
         );
     });
 

@@ -1,7 +1,6 @@
 import type { SiteConfig } from "@/validators/config";
 
-const url =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://ragebaitor.host.ender.fi";
+const url = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ragebaitor.lol";
 
 export const siteConfig: SiteConfig = {
     // Basic info
