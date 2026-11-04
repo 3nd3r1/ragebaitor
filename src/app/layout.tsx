@@ -51,11 +51,6 @@ export const metadata: Metadata = {
         title: siteConfig.name,
         description: siteConfig.description,
     },
-    icons: {
-        icon: "/favicon.ico",
-        shortcut: "/favicon.ico",
-        apple: "/apple-touch-icon.png",
-    },
     category: siteConfig.category,
     other: { "darkreader-lock": "true" },
 };
