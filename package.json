@@ -12,7 +12,7 @@
         "test": "vitest run",
         "test:watch": "vitest",
         "coverage": "vitest run --coverage",
-        "type-check": "tsc --noEmit",
+        "type-check": "next typegen && tsc --noEmit",
         "add-post": "tsx scripts/add-post.ts",
         "docker:dev": "docker compose up frontend",
         "docker:build": "docker compose build frontend",
