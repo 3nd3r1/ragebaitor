@@ -1,12 +1,15 @@
 import type { SiteConfig } from "@/validators/config";
 
+const url =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://ragebaitor.host.ender.fi";
+
 export const siteConfig: SiteConfig = {
     // Basic info
     name: "Ragebaitor",
     shortName: "Ragebaitor",
     description:
         "Ragebait or genuine? Ten real posts a day. Everyone thinks they can spot bait.",
-    url: "https://ragebaitor.com",
+    url,
 
     // Branding
     themeColor: "#15110e",
@@ -17,7 +20,7 @@ export const siteConfig: SiteConfig = {
     // Author info
     author: {
         name: "Viljami",
-        url: "https://ragebaitor.com",
+        url,
     },
 
     // Keywords for SEO
