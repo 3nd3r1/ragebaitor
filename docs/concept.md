@@ -24,11 +24,11 @@ The share card does the marketing. "I'm unbaitable" and "I got baited 6 times" a
 
 v1 uses a hybrid: hand-labelled posts where the intent is actually known, and the crowd split shown on every post. Nobody can know for sure what someone meant, so the game should never pretend otherwise.
 
-| Source of truth   | How it works                                                                                                                | Good                         | Bad                                     |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | --------------------------------------- |
-| Known intent      | Account admitted it, known engagement farm, parody account people fell for, or clearly sincere (personal post, no audience) | Answers you can defend       | Slow to collect, small set              |
-| Engagement signal | Lots of quotes and replies compared to likes ("the ratio")                                                                  | Measurable, scales           | Noisy: sincere bad takes get ratioed too |
-| Crowd             | Show "73% said bait" after each guess                                                                                       | Never wrong, fun to compare  | Not a real answer on its own            |
+| Source of truth   | How it works                                                                                                                | Good                        | Bad                                      |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ---------------------------------------- |
+| Known intent      | Account admitted it, known engagement farm, parody account people fell for, or clearly sincere (personal post, no audience) | Answers you can defend      | Slow to collect, small set               |
+| Engagement signal | Lots of quotes and replies compared to likes ("the ratio")                                                                  | Measurable, scales          | Noisy: sincere bad takes get ratioed too |
+| Crowd             | Show "73% said bait" after each guess                                                                                       | Never wrong, fun to compare | Not a real answer on its own             |
 
 In v1, every post has a curator label (bait / genuine) plus a short reason, and the crowd split shows under it. If the crowd strongly disagrees with the label, that post gets flagged for review. Those disagreements are interesting content in their own right later ("posts nobody agrees on").
 
@@ -67,25 +67,25 @@ The MVP is a mobile-first web app with one daily round and no accounts. The goal
 
 Suggested starting point: Next.js on Vercel and Supabase (Postgres) for posts and votes.
 
-| Table        | Columns                                                                                    | Notes                                                                    |
-| ------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `posts`      | id, body, image_url, display_handle, label (`bait` / `genuine`), reason, source_note, created_at | source_note is private, for us only                                      |
-| `daily_sets` | date, post_ids[]                                                                           | 10 ids, ordered; could also be derived from a seed                       |
-| `votes`      | id, post_id, player_id, guess, created_at                                                  | player_id = anonymous localStorage uuid; one vote per player per post    |
+| Table        | Columns                                                                                          | Notes                                                                 |
+| ------------ | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| `posts`      | id, body, image_url, display_handle, label (`bait` / `genuine`), reason, source_note, created_at | source_note is private, for us only                                   |
+| `daily_sets` | date, post_ids[]                                                                                 | 10 ids, ordered; could also be derived from a seed                    |
+| `votes`      | id, post_id, player_id, guess, created_at                                                        | player_id = anonymous localStorage uuid; one vote per player per post |
 
 The crowd % is a count over `votes` grouped by post. Cache it, since it doesn't need to be live to the second.
 
 ## Prior art
 
-| Thing                                                                                                    | What it is                                                                 | Takeaway                                            |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------- |
-| [Onion or Not](https://github.com/nmoroze/onion-or-not/blob/master/README.md)                            | Guess if a headline is from the Onion or real (from r/nottheonion)          | Same mechanic, but the answer is a fact             |
-| [Elon Musk Battle Royale](https://isaquepicaosanches.itch.io/elon-musk-battle-royable)                   | Party game: real or fake Musk tweet (Nordic Game Jam 2022)                  | A live party mode could work                        |
-| [Two Tweets & A Lie](https://avclub.com/get-involved-internet-help-turn-weird-celebrity-tweet-1839103898) | Card game: spot the fake celebrity tweet                                   | Shows people pay for this format                    |
-| [Trick or Tweet (NPR)](https://www.npr.org/transcripts/452707617)                                        | Radio quiz: real vs made-up celebrity tweet                                | Same                                                |
-| [RageCheck](https://korben.info/en/detect-rage-bait-articles-ragecheck.html)                             | Paste a URL and get a 0 to 100 manipulation score                          | Its categories could become the "reason" text       |
-| [FeedFirewall](https://chromewebstore.google.com/detail/dchnceoncmglnoekmlbpodoepgcgminc)                | Extension that flags likely ragebait on X, Reddit and LinkedIn             | Tool, not a game; tiny user base                    |
-| [Ragebait on Japanese X (arXiv)](https://arxiv.org/pdf/2609.02262)                                       | 18,558 labelled posts plus a detector                                      | LLM pre-labels, a human checks                      |
+| Thing                                                                                                     | What it is                                                         | Takeaway                                      |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------- |
+| [Onion or Not](https://github.com/nmoroze/onion-or-not/blob/master/README.md)                             | Guess if a headline is from the Onion or real (from r/nottheonion) | Same mechanic, but the answer is a fact       |
+| [Elon Musk Battle Royale](https://isaquepicaosanches.itch.io/elon-musk-battle-royable)                    | Party game: real or fake Musk tweet (Nordic Game Jam 2022)         | A live party mode could work                  |
+| [Two Tweets & A Lie](https://avclub.com/get-involved-internet-help-turn-weird-celebrity-tweet-1839103898) | Card game: spot the fake celebrity tweet                           | Shows people pay for this format              |
+| [Trick or Tweet (NPR)](https://www.npr.org/transcripts/452707617)                                         | Radio quiz: real vs made-up celebrity tweet                        | Same                                          |
+| [RageCheck](https://korben.info/en/detect-rage-bait-articles-ragecheck.html)                              | Paste a URL and get a 0 to 100 manipulation score                  | Its categories could become the "reason" text |
+| [FeedFirewall](https://chromewebstore.google.com/detail/dchnceoncmglnoekmlbpodoepgcgminc)                 | Extension that flags likely ragebait on X, Reddit and LinkedIn     | Tool, not a game; tiny user base              |
+| [Ragebait on Japanese X (arXiv)](https://arxiv.org/pdf/2609.02262)                                        | 18,558 labelled posts plus a detector                              | LLM pre-labels, a human checks                |
 
 ## Open questions
 

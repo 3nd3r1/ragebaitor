@@ -48,13 +48,13 @@ The anonymous `playerId` for votes is added in Phase 2, when there's something t
 
 ### UI (one page, works on phone and laptop)
 
-| Component        | Does                                                                     |
-| ---------------- | ------------------------------------------------------------------------ |
-| `PostCard`       | Our own post card (handle, text, photos), or a screenshot                |
-| `GuessButtons`   | Bait / Genuine, large tap targets at the bottom of the screen            |
-| `Reveal`         | Right/wrong, verdict, reason, View original, Show proof, Next            |
-| `ProgressDots`   | 10 dots showing done / current / correct / wrong                         |
-| `EndScreen`      | Score, result grid, streak, Copy result button                           |
+| Component      | Does                                                          |
+| -------------- | ------------------------------------------------------------- |
+| `PostCard`     | Our own post card (handle, text, photos), or a screenshot     |
+| `GuessButtons` | Bait / Genuine, large tap targets at the bottom of the screen |
+| `Reveal`       | Right/wrong, verdict, reason, View original, Show proof, Next |
+| `ProgressDots` | 10 dots showing done / current / correct / wrong              |
+| `EndScreen`    | Score, result grid, streak, Copy result button                |
 
 Components go in `src/components/game/`. Uses existing shadcn `Card`, `Button`, `sonner` (for "Copied!"); may add `progress`.
 
@@ -89,19 +89,19 @@ ragebaitor.com
 
 ## Decisions
 
-| Question              | Decision                                                                                  |
-| --------------------- | ----------------------------------------------------------------------------------------- |
-| Name                  | Ragebaitor                                                                                |
-| Share emoji           | 🎣 = got baited (wrong guess), ⬜ = correct. Fewer hooks is better |
-| Seed posts            | You provide real posts in `posts.json`; code ships with the schema and 2–3 placeholders |
-| Buttons               | Bait / Genuine only. "Can't tell" maybe later                                             |
-| Engagement numbers    | Hidden in Phase 1 (default, revisit after playtesting)                                    |
-| Finnish set           | Out of scope for Phase 1                                                                  |
-| Post format           | Fetched from an X link and drawn as our own card. Screenshots as fallback                 |
-| Proof                 | Optional; `reason` is always required                                                     |
-| Video                 | Later                                                                                     |
-| Crowd %               | Not in Phase 1. Comes with real votes in Phase 2                                          |
-| Look                  | Dark only. Phone: post, then buttons at the bottom. Laptop: post left, actions right      |
+| Question           | Decision                                                                                |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| Name               | Ragebaitor                                                                              |
+| Share emoji        | 🎣 = got baited (wrong guess), ⬜ = correct. Fewer hooks is better                      |
+| Seed posts         | You provide real posts in `posts.json`; code ships with the schema and 2–3 placeholders |
+| Buttons            | Bait / Genuine only. "Can't tell" maybe later                                           |
+| Engagement numbers | Hidden in Phase 1 (default, revisit after playtesting)                                  |
+| Finnish set        | Out of scope for Phase 1                                                                |
+| Post format        | Fetched from an X link and drawn as our own card. Screenshots as fallback               |
+| Proof              | Optional; `reason` is always required                                                   |
+| Video              | Later                                                                                   |
+| Crowd %            | Not in Phase 1. Comes with real votes in Phase 2                                        |
+| Look               | Dark only. Phone: post, then buttons at the bottom. Laptop: post left, actions right    |
 
 ## Still open
 
