@@ -12,8 +12,8 @@ export const siteConfig: SiteConfig = {
     url,
 
     // Branding
-    themeColor: "#15110e",
-    backgroundColor: "#15110e",
+    themeColor: "#0c0a09",
+    backgroundColor: "#0c0a09",
     locale: "en_US",
     language: "en",
 

@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { formatResultGrid, formatShareText } from "@/lib/share";
 
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 type EndScreenProps = {
     dayNumber: number;
@@ -41,27 +42,22 @@ const EndScreen = ({
                     {formatResultGrid(results)}
                 </p>
                 <dl className="grid w-full grid-cols-2 gap-3">
-                    <div className="rounded-xl bg-card p-4">
+                    <Card size="sm" className="gap-1">
                         <dd className="font-heading text-3xl font-bold">
                             {streak}
                         </dd>
-                        <dt className="text-sm text-muted-foreground">
-                            Streak
-                        </dt>
-                    </div>
-                    <div className="rounded-xl bg-card p-4">
+                        <dt className="text-muted-foreground">Streak</dt>
+                    </Card>
+                    <Card size="sm" className="gap-1">
                         <dd className="font-heading text-3xl font-bold">
                             {maxStreak}
                         </dd>
-                        <dt className="text-sm text-muted-foreground">Best</dt>
-                    </div>
+                        <dt className="text-muted-foreground">Best</dt>
+                    </Card>
                 </dl>
                 <p className="text-muted-foreground">New posts tomorrow.</p>
             </div>
-            <Button
-                className="h-16 rounded-xl font-heading text-lg font-bold"
-                onClick={copyShareText}
-            >
+            <Button size="xl" onClick={copyShareText}>
                 Copy result
             </Button>
         </div>

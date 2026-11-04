@@ -10,15 +10,13 @@ const GuessButtons = ({ onGuess }: { onGuess: (label: Label) => void }) => {
             </h1>
             <div className="grid grid-cols-2 gap-3">
                 <Button
-                    className="h-16 rounded-xl bg-bait font-heading text-lg font-bold text-bait-foreground hover:bg-bait/85"
+                    variant="bait"
+                    size="xl"
                     onClick={() => onGuess("bait")}
                 >
                     Bait
                 </Button>
-                <Button
-                    className="h-16 rounded-xl font-heading text-lg font-bold"
-                    onClick={() => onGuess("genuine")}
-                >
+                <Button size="xl" onClick={() => onGuess("genuine")}>
                     Genuine
                 </Button>
             </div>

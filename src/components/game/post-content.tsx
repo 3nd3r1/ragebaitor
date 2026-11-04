@@ -1,9 +1,39 @@
 import Image from "next/image";
 
-import type { Content } from "@/validators/post";
+import type { Content, Media } from "@/validators/post";
 
 import { hashString } from "@/lib/random";
 import { cn } from "@/lib/utils";
+
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+
+// Full class names so Tailwind picks them up.
+const AVATAR_COLORS = [
+    "bg-chart-1",
+    "bg-chart-2",
+    "bg-chart-3",
+    "bg-chart-4",
+    "bg-chart-5",
+];
+
+const PostImage = ({
+    media,
+    className,
+}: {
+    media: Media;
+    className: string;
+}) => (
+    <Image
+        src={media.url}
+        alt={media.alt ?? ""}
+        width={media.width}
+        height={media.height}
+        sizes="(min-width: 1024px) 560px, 100vw"
+        loading="eager"
+        className={className}
+    />
+);
 
 const PostContent = ({
     content,
@@ -14,69 +44,59 @@ const PostContent = ({
 }) => {
     if (!content.handle && !content.text) {
         return (
-            <div className={cn("flex flex-col gap-2", className)}>
+            <Card className={cn("w-fit max-w-full gap-2 py-0", className)}>
                 {content.media.map((media) => (
-                    <Image
+                    <PostImage
                         key={media.url}
-                        src={media.url}
-                        alt={media.alt ?? ""}
-                        width={media.width}
-                        height={media.height}
-                        sizes="(min-width: 1024px) 560px, 100vw"
-                        loading="eager"
-                        className="h-auto max-h-[55dvh] w-auto max-w-full rounded-2xl shadow-2xl ring-1 ring-foreground/10 lg:max-h-[75dvh]"
+                        media={media}
+                        className="h-auto max-h-[55dvh] w-auto max-w-full lg:max-h-[75dvh]"
                     />
                 ))}
-            </div>
+            </Card>
         );
     }
 
-    const hue = content.handle ? hashString(content.handle) % 360 : 0;
-
     return (
-        <article
-            className={cn(
-                "flex w-full flex-col gap-3 rounded-2xl bg-card p-4 shadow-2xl ring-1 ring-foreground/10",
-                className
-            )}
-        >
+        <Card size="sm" className={cn("w-full", className)}>
             {content.handle && (
-                <header className="flex items-center gap-3">
-                    <span
-                        aria-hidden
-                        className="size-10 shrink-0 rounded-full"
-                        style={{ backgroundColor: `oklch(0.65 0.12 ${hue})` }}
-                    />
-                    <span className="font-semibold">{content.handle}</span>
-                </header>
-            )}
-            {content.text && (
-                <p className="text-base leading-relaxed whitespace-pre-wrap lg:text-lg">
-                    {content.text}
-                </p>
-            )}
-            {content.media.length > 0 && (
-                <div
-                    className={cn(
-                        "grid gap-1 overflow-hidden rounded-xl",
-                        content.media.length > 1 && "grid-cols-2"
-                    )}
-                >
-                    {content.media.map((media) => (
-                        <Image
-                            key={media.url}
-                            src={media.url}
-                            alt={media.alt ?? ""}
-                            width={media.width}
-                            height={media.height}
-                            sizes="(min-width: 1024px) 560px, 100vw"
-                            loading="eager"
-                            className="h-auto max-h-[40dvh] w-full object-cover"
+                <CardHeader className="flex items-center gap-3">
+                    <Avatar size="lg" aria-hidden>
+                        <AvatarFallback
+                            className={
+                                AVATAR_COLORS[
+                                    hashString(content.handle) %
+                                        AVATAR_COLORS.length
+                                ]
+                            }
                         />
-                    ))}
-                </div>
+                    </Avatar>
+                    <span className="font-semibold">{content.handle}</span>
+                </CardHeader>
             )}
-        </article>
+            <CardContent className="flex flex-col gap-3">
+                {content.text && (
+                    <p className="text-base leading-relaxed whitespace-pre-wrap lg:text-lg">
+                        {content.text}
+                    </p>
+                )}
+                {content.media.length > 0 && (
+                    <div
+                        className={cn(
+                            "grid gap-1 overflow-hidden",
+                            content.media.length > 1 && "grid-cols-2"
+                        )}
+                    >
+                        {content.media.map((media) => (
+                            <PostImage
+                                key={media.url}
+                                media={media}
+                                className="h-auto max-h-[40dvh] w-full object-cover"
+                            />
+                        ))}
+                    </div>
+                )}
+            </CardContent>
+        </Card>
     );
 };
 

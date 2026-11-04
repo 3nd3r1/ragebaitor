@@ -71,10 +71,7 @@ const Reveal = ({ post, guess, isLast, onNext }: RevealProps) => {
                 </div>
             )}
 
-            <Button
-                className="h-16 rounded-xl font-heading text-lg font-bold"
-                onClick={onNext}
-            >
+            <Button size="xl" onClick={onNext}>
                 {isLast ? "See results" : "Next"}
             </Button>
         </div>
