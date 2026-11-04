@@ -1,21 +1,13 @@
 import Image from "next/image";
 
+import { UserIcon } from "lucide-react";
+
 import type { Content, Media } from "@/validators/post";
 
-import { hashString } from "@/lib/random";
 import { cn } from "@/lib/utils";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
-// Full class names so Tailwind picks them up.
-const AVATAR_COLORS = [
-    "bg-chart-1",
-    "bg-chart-2",
-    "bg-chart-3",
-    "bg-chart-4",
-    "bg-chart-5",
-];
 
 const PostImage = ({
     media,
@@ -61,14 +53,9 @@ const PostContent = ({
             {content.handle && (
                 <CardHeader className="flex items-center gap-3">
                     <Avatar size="lg" aria-hidden>
-                        <AvatarFallback
-                            className={
-                                AVATAR_COLORS[
-                                    hashString(content.handle) %
-                                        AVATAR_COLORS.length
-                                ]
-                            }
-                        />
+                        <AvatarFallback>
+                            <UserIcon className="size-5" />
+                        </AvatarFallback>
                     </Avatar>
                     <span className="font-semibold">{content.handle}</span>
                 </CardHeader>
