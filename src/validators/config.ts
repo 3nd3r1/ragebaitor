@@ -5,8 +5,6 @@ export const siteConfigSchema = z.object({
     shortName: z.string().min(1),
     description: z.string().min(1),
     url: z.string(),
-    themeColor: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
-    backgroundColor: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
     locale: z.string().min(1),
     language: z.string().min(1),
     author: z.object({

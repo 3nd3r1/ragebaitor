@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
 import { siteConfig } from "@/lib/config";
+import { getThemeColors } from "@/lib/theme";
 
 export const size = {
     width: 1200,
@@ -10,12 +11,14 @@ export const size = {
 export const contentType = "image/png";
 
 export default function Image() {
+    const colors = getThemeColors("dark");
+
     return new ImageResponse(
         <div
             style={{
                 fontSize: 64,
-                background: "linear-gradient(to bottom right, #000, #333)",
-                color: "white",
+                background: colors.primary,
+                color: colors.primaryForeground,
                 width: "100%",
                 height: "100%",
                 display: "flex",

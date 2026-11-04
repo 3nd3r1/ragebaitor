@@ -11,9 +11,7 @@ export const siteConfig: SiteConfig = {
         "Ragebait or genuine? Ten real posts a day. Everyone thinks they can spot bait.",
     url,
 
-    // Branding
-    themeColor: "#0c0a09",
-    backgroundColor: "#0c0a09",
+    // Locale
     locale: "en_US",
     language: "en",
 

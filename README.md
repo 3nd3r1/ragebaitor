@@ -24,4 +24,17 @@ npm run test         # Run tests
 npm run test:watch   # Run tests in watch mode
 npm run coverage     # Run tests with coverage
 npm run type-check   # TypeScript type checking
+npm run theme -- <code>  # Apply colors from a shadcn preset
 ```
+
+## Theme
+
+The theme is shadcn's Sera style with neutral grays and a purple primary color,
+with Noto Sans text and Playfair Display headings. Its preset code is
+`b4pl265ewS`. The app is always in dark
+mode, and the colors are CSS variables in `src/app/globals.css`.
+
+To change the colors, build a preset on
+[ui.shadcn.com/create?preset=b4pl265ewS](https://ui.shadcn.com/create?preset=b4pl265ewS),
+copy its code and run `npm run theme -- <code>`. The PWA manifest, OG images and
+browser theme color take their colors from `globals.css`.

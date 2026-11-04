@@ -19,6 +19,7 @@ npm run format       # Format with Prettier
 npm run test         # Run all tests
 npm test -- tests/api/ping.test.ts  # Run single test file
 npm run type-check   # TypeScript checking
+npm run theme -- <code>  # Apply shadcn preset colors to globals.css
 ```
 
 Add shadcn components: `npx shadcn@latest add [component]`
@@ -27,7 +28,9 @@ Add shadcn components: `npx shadcn@latest add [component]`
 
 This project uses shadcn/ui for UI components. Always prefer shadcn components over custom implementations when a suitable component exists. Browse available components at [ui.shadcn.com](https://ui.shadcn.com). Components are installed to `src/components/ui/` and can be customized after installation.
 
-Components use the `base-nova` style, built on Base UI (not Radix). Compose with the `render` prop instead of `asChild`. For links that look like buttons, style the link with `buttonVariants()` rather than wrapping it in `Button`.
+Components use the `base-sera` style, built on Base UI (not Radix). Compose with the `render` prop instead of `asChild`. For links that look like buttons, style the link with `cn(buttonVariants())` rather than wrapping it in `Button`. The `cn()` is required: without it the base and variant classes conflict (the outline border ends up transparent).
+
+Theme colors are CSS variables in `src/app/globals.css`, generated from a shadcn preset code (currently `b4pl265ewS`: Sera, neutral base, purple theme, Noto Sans and Playfair Display). Change them with `npm run theme -- <code>` rather than editing by hand; `npx shadcn preset decode <code>` shows what a code contains. The app is forced to dark mode, so the manifest, OG images and viewport theme color read the `.dark` colors from `globals.css` via `src/lib/theme.ts`.
 
 ## Folder Structure
 
@@ -48,6 +51,7 @@ src/
 ├── hooks/                  # Custom React hooks
 ├── lib/
 │   ├── config.ts           # Site configuration
+│   ├── theme.ts            # Reads theme colors from globals.css
 │   └── utils.ts            # Utility functions (cn)
 └── validators/             # Zod schemas and types
 

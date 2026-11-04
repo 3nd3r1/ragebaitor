@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Noto_Sans, Playfair_Display } from "next/font/google";
 
 import { siteConfig } from "@/lib/config";
+import { getThemeColors } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 import { Toaster } from "@/components/ui/sonner";
@@ -56,6 +57,10 @@ export const metadata: Metadata = {
     },
     category: siteConfig.category,
     other: { "darkreader-lock": "true" },
+};
+
+export const viewport: Viewport = {
+    themeColor: getThemeColors("dark").primary,
 };
 
 const structuredData = {

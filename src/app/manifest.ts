@@ -1,16 +1,20 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/lib/config";
+import { getThemeColors } from "@/lib/theme";
 
 export default function manifest(): MetadataRoute.Manifest {
+    // The app is forced to dark mode, so use the dark theme colors
+    const colors = getThemeColors("dark");
+
     return {
         name: siteConfig.name,
         short_name: siteConfig.shortName,
         description: siteConfig.description,
         start_url: "/",
         display: "standalone",
-        background_color: siteConfig.backgroundColor,
-        theme_color: siteConfig.themeColor,
+        background_color: colors.background,
+        theme_color: colors.primary,
         icons: [
             {
                 src: "/favicon.ico",
