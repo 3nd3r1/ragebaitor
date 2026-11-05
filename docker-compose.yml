@@ -5,8 +5,31 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
+      - DATABASE_URL=postgres://ragebaitor:ragebaitor@db:5432/ragebaitor
     volumes:
       - .:/app
       - /app/node_modules
       - /app/.next
     command: npm run dev
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:18-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=ragebaitor
+      - POSTGRES_PASSWORD=ragebaitor
+      - POSTGRES_DB=ragebaitor
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ragebaitor"]
+      interval: 2s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
