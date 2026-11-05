@@ -31,6 +31,14 @@ Prefer shadcn components over custom ones when one fits. They live in `src/compo
 - Tests in `tests/` mirror `src/`. API tests import route handlers directly
 - Keep comments to a minimum. Only add one for a non-obvious why, like a workaround or a magic number
 
+## Commits
+
+- Never add a `Co-Authored-By` line or any other Claude attribution
+- One line, no body: `type: summary`, lowercase, imperative, no period, like `feat: add posts from an X link`
+- Types: `feat` for new behavior, `fix` for bugs, `refactor` for restructuring without behavior changes, `docs` for `docs/` and READMEs, `chore` for posts, renames, formatting and dependencies
+- No scopes like `feat(game):`
+- One change per commit. Split unrelated work into separate commits
+
 ## Behavior
 
 - Be concise
