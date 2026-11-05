@@ -50,3 +50,19 @@ export const subscribe = (onChange: () => void) => {
         window.removeEventListener("storage", onStorage);
     };
 };
+
+const INTRO_KEY = "ragebaitor:intro-seen";
+
+export const hasSeenIntro = (): boolean => {
+    try {
+        return window.localStorage.getItem(INTRO_KEY) !== null;
+    } catch {
+        return false;
+    }
+};
+
+export const markIntroSeen = () => {
+    try {
+        window.localStorage.setItem(INTRO_KEY, "1");
+    } catch {}
+};

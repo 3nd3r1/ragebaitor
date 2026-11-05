@@ -4,6 +4,7 @@ import { useDailyGame } from "@/hooks/use-daily-game";
 
 import EndScreen from "@/components/game/end-screen";
 import GuessButtons from "@/components/game/guess-buttons";
+import Intro from "@/components/game/intro";
 import PostCard from "@/components/game/post-card";
 import ProgressDots from "@/components/game/progress-dots";
 import Reveal from "@/components/game/reveal";
@@ -23,13 +24,16 @@ const Game = () => {
                 <span className="font-heading text-2xl tracking-wider uppercase lg:text-3xl">
                     Ragebaitor
                 </span>
-                {playing && (
-                    <ProgressDots
-                        total={game.round.length}
-                        position={game.position}
-                        results={game.results}
-                    />
-                )}
+                <div className="flex items-center gap-3">
+                    {playing && (
+                        <ProgressDots
+                            total={game.round.length}
+                            position={game.position}
+                            results={game.results}
+                        />
+                    )}
+                    <Intro />
+                </div>
             </header>
             {game.current && playing ? (
                 <div className="flex flex-1 flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-12">
