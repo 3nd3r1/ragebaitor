@@ -1,6 +1,8 @@
 # Adding posts
 
-For X posts, pass the link:
+The quickest way is the add page. Run `npm run dev`, open [localhost:3000/add](http://localhost:3000/add), paste an X link, write the reason and press Add as bait or Add as genuine. It shows the post's text first so you can check it, and only works in development.
+
+From the terminal, pass the link instead:
 
 ```bash
 npm run add-post -- https://x.com/someone/status/123 --label bait --reason "Admitted it the next day."
