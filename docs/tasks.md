@@ -7,6 +7,7 @@ Phase 1 is done. Open work for [mvp-plan.md](./mvp-plan.md).
 - [ ] Get to about 30 real posts, roughly half bait (16 so far)
 - [ ] Remove the 4 placeholder posts, p001 to p004
 - [ ] Playtest with friends
+- [x] Short intro that explains the game before the first post, along the lines of "Most of the internet is ragebait. Can you spot it?" Shown on first visit, then reachable from a help button
 
 ## Phase 2: Postgres
 
