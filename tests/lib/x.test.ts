@@ -1,12 +1,8 @@
-import {
-    getTweetPhotoUrls,
-    getTweetText,
-    parseTweetId,
-} from "../../scripts/lib/x";
-
 import { describe, expect, it } from "vitest";
 
 import type { Tweet } from "@/validators/tweet";
+
+import { getTweetPhotoUrls, getTweetText, parseTweetId } from "@/lib/x";
 
 const tweet = (overrides: Partial<Tweet>): Tweet => ({
     text: "",
