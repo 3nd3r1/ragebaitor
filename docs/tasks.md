@@ -13,10 +13,10 @@ Phase 1 is done. Open work for [mvp-plan.md](./mvp-plan.md).
 
 ### Database
 
-- [ ] Postgres service in `docker-compose.yml` for local dev
-- [ ] Drizzle setup, `DATABASE_URL`, migration scripts in `package.json`
-- [ ] Schema: `posts` (with optional `date`) and `votes` (unique per post and player)
-- [ ] Seed script that loads `posts.json` and copies images to the media folder
+- [x] Postgres service in `docker-compose.yml` for local dev
+- [x] Drizzle setup, `DATABASE_URL`, migration scripts in `package.json`
+- [x] Schema: `posts` (with optional `date`) and `votes` (unique per post and player)
+- [x] Seed script that loads `posts.json` and copies images to the media folder
 - [ ] Delete `posts.json` and `public/posts` once the seed works
 
 ### Media
