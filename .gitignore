@@ -42,3 +42,6 @@ next-env.d.ts
 
 # nixers
 .direnv
+
+# media uploads
+/media
