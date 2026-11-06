@@ -249,5 +249,95 @@
         },
         "reason": "Admitted later it was bait.",
         "sourceUrl": "https://x.com/theo/status/2099335125670752403"
+    },
+    {
+        "id": "p021",
+        "label": "bait",
+        "content": {
+            "handle": "@bravepebble39",
+            "text": "High Testosterone vs. Low Testosterone",
+            "media": [
+                {
+                    "type": "image",
+                    "url": "/posts/p021-1.webp",
+                    "width": 1080,
+                    "height": 1350
+                },
+                {
+                    "type": "image",
+                    "url": "/posts/p021-2.webp",
+                    "width": 1080,
+                    "height": 1350
+                }
+            ]
+        },
+        "reason": "Pairs raw milk and steak tartare with \"cuckoldry\" and margarine so everyone has something to argue with.",
+        "sourceUrl": "https://x.com/lennartprimal/status/2117934895091851408"
+    },
+    {
+        "id": "p022",
+        "label": "bait",
+        "content": {
+            "handle": "@sunnykettle42",
+            "text": "LAS HIJAS SON UNOS ROBA MARIDOS. LAS ESPOSAS MARCAN TERRITORIO.",
+            "media": []
+        },
+        "reason": "All-caps claim that daughters steal husbands, written to start a fight in the replies.",
+        "sourceUrl": "https://x.com/anonimo_jones/status/2117661902062977312"
+    },
+    {
+        "id": "p023",
+        "label": "bait",
+        "content": {
+            "handle": "@jollybadger83",
+            "text": "Charlie Kirk was assassinated by the left\n\nYet people still voted for it\n\nSays a lot",
+            "media": []
+        },
+        "reason": "Pins a killing on half the country and ends with \"says a lot\" so the replies argue it out.",
+        "sourceUrl": "https://x.com/shaunmmaguire/status/2117800966657315196"
+    },
+    {
+        "id": "p024",
+        "label": "bait",
+        "content": {
+            "handle": "@quietpebble43",
+            "text": "Finland seems like a nice place to live in.",
+            "media": []
+        },
+        "reason": "Said while Finland's cost of living was trending, knowing the replies would pile on.",
+        "sourceUrl": "https://x.com/HemkinFiveGum/status/2117945403782177069"
+    },
+    {
+        "id": "p025",
+        "label": "bait",
+        "content": {
+            "handle": "@plainnoodle20",
+            "text": "it genuinely pisses me off when i see families with three children where the two elder ones are daughters and the youngest is a son. i know exactly what you did",
+            "media": []
+        },
+        "reason": "Accuses strangers of trying for a son. \"I know exactly what you did\" is there to bait parents.",
+        "sourceUrl": "https://x.com/onlysammms/status/2117908525783609643"
+    },
+    {
+        "id": "p026",
+        "label": "bait",
+        "content": {
+            "handle": "@plainotter18",
+            "text": "Crazy how Large Language Models have gotten good at pretty much everything other than generating text",
+            "media": []
+        },
+        "reason": "A deliberately backwards claim from a tech poster who knows it will get quote-tweeted.",
+        "sourceUrl": "https://x.com/theo/status/2117493401402953774"
+    },
+    {
+        "id": "p027",
+        "label": "bait",
+        "content": {
+            "handle": "@mossymaple27",
+            "text": "Finnish woman shows a minimal grocery haul costing 71.91€. Despite being employed, she struggles to save a single euro. Finland is one of the most expensive countries for food relative to earnings, while facing the highest unemployment in the EU. A steep decline for the nation.",
+            "media": []
+        },
+        "reason": "Uses one woman's grocery haul as proof a whole country is collapsing.",
+        "sourceUrl": "https://x.com/Kenraalikunta/status/2117942918853890351"
     }
 ]
